@@ -1,0 +1,9 @@
+{
+    "mastodon":{
+        "server":    "https://example.com",
+        "clientid":  "clientid",
+        "clientsecret": "clientsecret",
+        "email":    "your-email",
+        "pass":     "your-pass"
+    }
+}

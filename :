@@ -1,0 +1,45 @@
+package cmd
+
+import (
+	"context"
+	"log"
+
+	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
+	m "github.com/mattn/go-mastodon"
+)
+
+
+//tootCmd = &cobra.Command{
+var tootCmd = &cobra.Command{
+	Use:	"toot",
+	Short:	"Mastodon toot",
+	Run: func(cmd *cobra.Command, args []string){
+		viper.SetConfigName("example")
+		viper.AddConfigPath("../")
+		viper.SetConfigType("yaml")
+		err := viper.ReadConfig
+		if err != nil{
+			log.Print("cannot read config :%v", err)
+		}
+		config := &m.Config{
+			Server:			viper.GetString("m_Server"),
+			ClientID:		viper.GetString("m_ClientID"),
+			ClientSecret:	viper.GetString("m_ClientSecret"),
+		}
+		email := viper.GetString("m_Email")
+		pass  := viper.GetString("m_Pass")
+			c := m.NewClient(config)
+			err = c.Authenticate(context.Background(), email, pass)
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			//	ここから
+			var toot string
+			toot = args[0]
+			c.PostStatus(context.Background(), &m.Toot{
+				Status: toot,
+			})
+		},
+}
