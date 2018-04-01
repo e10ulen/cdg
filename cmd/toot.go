@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"context"
-	"log"
 	"fmt"
 	"os"
 
@@ -22,10 +21,9 @@ var tootCmd = &cobra.Command{
 	Short:	"Mastodon toot",
 	Run: func(cmd *cobra.Command, args []string){
 
-		path, _ := os.Getwd()
-
-		viper.SetConfigName("cdg")
-		viper.AddConfigPath(path+"/")
+		viper.SetConfigName(".cdg")
+		viper.AddConfigPath("./")
+		viper.AddConfigPath("$HOME/")
 		viper.SetConfigType("json")
 		err := viper.ReadInConfig()
 		if err != nil{
@@ -38,14 +36,10 @@ var tootCmd = &cobra.Command{
 			ClientSecret:	viper.GetString("mastodon.clientsecret"),
 		}
 	  var email,pass string
-		email = viper.GetString("mastodon.email")
+	  email = viper.GetString("mastodon.email")
 		pass = viper.GetString("mastodon.pass")
 		c := m.NewClient(config)
 		c.Authenticate(context.Background(), email, pass)
-		if err != nil{
-			log.Println("Client:", err)
-
-		}
 		//	ここから
 		var toot string
 		toot = args[0]
