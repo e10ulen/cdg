@@ -17,7 +17,7 @@ func init(){
 var htCmd = &cobra.Command{
 	Use:	"ht",
 	Short:	"Auto Commit And Push.",
-	Run:	func(cmd *cobra.Command, args[]string){
+	Run:	func(cmd *cobra.Command, args []string){
 		tm := time.Now()
 		dir, err := os.Getwd()
 		if err == nil {

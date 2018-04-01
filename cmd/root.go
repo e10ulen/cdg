@@ -10,8 +10,7 @@ import (
 
 var RootCmd = &cobra.Command{
 	Use: "cdg",
-	Short: "cd-bookmark for golang",
-	Long: "cd-bookmark for golang by e10ulen",
+	Short:	"My CommandTools",
 	Run: func(cmd *cobra.Command, args []string) {
 	},
 }
@@ -21,7 +20,7 @@ func init() {
 }
 
 var versionCmd = &cobra.Command{
-	Use: "Version",
+	Use: "version",
 	Short: "Print the version number of cdg",
 	Long: "All Software has versions. This is cdg",
 	Run: func(cmd *cobra.Command, args []string){
