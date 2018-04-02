@@ -37,8 +37,8 @@ var timelineCmd = &cobra.Command{
 		}
 		//var email string
 		//var pass string
-		email := viper.GetString("mastodon.email")
-		pass := viper.GetString("mastodon.pass")
+		email := viper.GetString("list.mastodon.email")
+		pass := viper.GetString("list.mastodon.pass")
 		c := m.NewClient(config)
 		c.Authenticate(context.Background(), email, pass)
 		if err != nil {
@@ -49,13 +49,15 @@ var timelineCmd = &cobra.Command{
 		q, err := wsc.StreamingWSPublic(context.Background(), true)
 		for e := range q {
 			if t, ok := e.(*m.UpdateEvent); ok {
-				color.Blue(t.Status.CreatedAt.Local().Format("15:04:05"))
-				color.Magenta(t.Status.Account.DisplayName + "(" + t.Status.Account.Acct+")")
 				s := t.Status.Content
 				s = strings.Replace(s, "<p>", "", -1)
 				s = strings.Replace(s, "</p>", "", -1)
-
-				color.Red(s)
+				blue := color.New(color.FgBlue).SprintFunc()
+				magenta := color.New(color.FgMagenta).SprintFunc()
+				red := color.New(color.FgRed).SprintFunc()
+				//
+				fmt.Printf("%s %s(%s) %s\n", blue(t.Status.CreatedAt.Local().Format("15:04:05")), magenta(t.Status.Account.DisplayName), magenta(t.Status.Account.Acct), red(s))
+				//
 
 			}
 		}
