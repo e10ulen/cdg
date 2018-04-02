@@ -31,9 +31,9 @@ var timelineCmd = &cobra.Command{
 			os.Exit(1)
 		}
 		config := &m.Config{
-			Server: viper.GetString("mastodon.server"),
-			ClientID: viper.GetString("mastodon.clientid"),
-			ClientSecret: viper.GetString("mastodon.clientsecret"),
+			Server: viper.GetString("list.mastodon.server"),
+			ClientID: viper.GetString("list.mastodon.clientid"),
+			ClientSecret: viper.GetString("list.mastodon.clientsecret"),
 		}
 		//var email string
 		//var pass string

@@ -10,6 +10,9 @@ Auto git to Add + Commit + Push
 - cdg tl
 マストドンのローカルタイムラインを見つめます。  
 連合は作者が使ってないので見れませんというクズっぷりです。  
+- cdg tweet
+とりあえず、Twitterにツイートはできるようになりました。  
+
 # Develop Platform
 Linux 4.13  
 Xubuntu 16.04 i686  
@@ -28,6 +31,8 @@ example.cdg.jsonの中身を書き換えて、.cdg.jsonにして$HOMEだけを�
 アプリ名のページを開き  
 ここからクライアントキーとクライアントシークレットがコピーできます  
   
+なんか、[dev.twitter.com](https://developer.twitter.com/)から直でアプリ管理画面いけなくなってません？  
+[apps.twitter.com](https://apps.twitter.com/)をURL直打ちするとは思わなかった  
 
 # 一応…
 cdg tl を使うとカラー指定と、DisplayName(Username)をしてるので、  

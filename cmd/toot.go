@@ -31,13 +31,13 @@ var tootCmd = &cobra.Command{
 			os.Exit(-1)
 		}
 		config := &m.Config{
-			Server:			viper.GetString("mastodon.server"),
-			ClientID:		viper.GetString("mastodon.clientid"),
-			ClientSecret:	viper.GetString("mastodon.clientsecret"),
+			Server:			viper.GetString("list.mastodon.server"),
+			ClientID:		viper.GetString("list.mastodon.clientid"),
+			ClientSecret:	viper.GetString("list.mastodon.clientsecret"),
 		}
-	  var email,pass string
-	  email = viper.GetString("mastodon.email")
-		pass = viper.GetString("mastodon.pass")
+		//var email,pass string
+		email := viper.GetString("list.mastodon.email")
+		pass := viper.GetString("list.mastodon.pass")
 		c := m.NewClient(config)
 		c.Authenticate(context.Background(), email, pass)
 		//	ここから

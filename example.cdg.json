@@ -1,9 +1,17 @@
 {
-    "mastodon":{
-        "server":    "https://example.com",
-        "clientid":  "clientid",
-        "clientsecret": "clientsecret",
-        "email":    "your-email",
-        "pass":     "your-pass"
+    "list":{
+        "mastodon":{
+            "server":               "mastodon-url",
+            "clientid":             "",
+            "clientsecret":         "",
+            "email":                "your-email",
+            "pass":                 "your-pass"
+        },
+        "twitter":{
+            "consumerkey":          "",
+            "consumersecretkey":    "",
+            "accesstoken":          "",
+            "accesstokensecret":    ""
+        }
     }
 }
