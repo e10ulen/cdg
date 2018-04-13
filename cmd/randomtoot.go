@@ -24,7 +24,7 @@ var randomtootCmd = &cobra.Command{
 	Long:	"Mastodon toot in textfile",
 	Run: func(cmd *cobra.Command, args []string){
 
-		viper.SetConfigName(".cdg")
+		viper.SetConfigName(".zzz")
 		viper.AddConfigPath("./")
 		viper.AddConfigPath("$HOME/")
 		viper.SetConfigType("json")

@@ -1,9 +1,0 @@
-{
-    "mastodon":{
-        "server":    "https://ichiji.social",
-        "clientid":  "026a9bafbc6c83437fa81c56797ec177028bac19d683660fe31ff4237cfecc23",
-        "clientsecret": "c8feea25bf62ab6d1e447b49985601ab0201dc559a466362548bf975c17f37dc",
-        "email":    "e10ulen@ymobile.ne.jp",
-        "pass":     "7010a0107"
-    }
-}

@@ -21,7 +21,7 @@ var tootCmd = &cobra.Command{
 	Short:	"Mastodon toot",
 	Run: func(cmd *cobra.Command, args []string){
 
-		viper.SetConfigName(".cdg")
+		viper.SetConfigName(".zzz")
 		viper.AddConfigPath("./")
 		viper.AddConfigPath("$HOME/")
 		viper.SetConfigType("yaml")
