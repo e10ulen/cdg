@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"fmt"
-	"io/ioutil"
-	"strings"
+//	"fmt"
+//	"io/ioutil"
+//	"strings"
 	"github.com/spf13/cobra"
 )
 
@@ -16,8 +16,8 @@ var botCmd = &cobra.Command{
 	Short:	"Calculator of addition.",
 	Long:	"Calculator to perform the addition",
 	Run: func(cmd *cobra.Command, args []string){
-		var n1 int
-		n1, _ = (args[0])
-		fmt.Println(n1)
+		//var n1 int
+		//n1, _ = (args[0])
+		//fmt.Println(n1)
 	},
 }

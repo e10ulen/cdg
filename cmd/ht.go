@@ -11,11 +11,11 @@ import (
 )
 const DateFormat = "2006/01/02 15:04"
 func init(){
-	RootCmd.AddCommand(htCmd)
+	RootCmd.AddCommand(gitcommitCmd)
 }
 
-var htCmd = &cobra.Command{
-	Use:	"ht",
+var gitcommitCmd = &cobra.Command{
+	Use:	"gc",
 	Short:	"Auto Commit And Push.",
 	Run:	func(cmd *cobra.Command, args []string){
 		tm := time.Now()

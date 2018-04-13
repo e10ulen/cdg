@@ -4,7 +4,8 @@ import (
 	"context"
 	"fmt"
 	"os"
-
+	"io/ioutil"
+	"strings"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	m "github.com/mattn/go-mastodon"
@@ -12,14 +13,15 @@ import (
 
 const BUFSIZE = 1024
 func init(){
-	RootCmd.AddCommand(tootCmd)
+	RootCmd.AddCommand(randomtootCmd)
 }
 
 
 //tootCmd = &cobra.Command{
-var tootCmd = &cobra.Command{
+var randomtootCmd = &cobra.Command{
 	Use:	"toot",
-	Short:	"Mastodon toot",
+	Short:	"Mastodon random toot",
+	Long:	"Mastodon toot in textfile",
 	Run: func(cmd *cobra.Command, args []string){
 
 		viper.SetConfigName(".cdg")
