@@ -21,13 +21,10 @@ var timelineCmd = &cobra.Command{
 	Use:	"tl",
 	Short:	"Mastodon GetTimeline.",
 	Run: func(cmd *cobra.Command, args []string){
-		/*
-		viper.SetConfigName(".zzz")
+		viper.SetConfigName(".qqw")
 		viper.AddConfigPath("./")
 		viper.AddConfigPath("$HOME/")
-		viper.SetConfigType("json")
-		*/
-		lib.ReadConfig()
+		viper.SetConfigType("yaml")
 		err := viper.ReadInConfig()
 		lib.Check(err)
 		config := &m.Config{
@@ -37,8 +34,8 @@ var timelineCmd = &cobra.Command{
 		}
 		//var email string
 		//var pass string
-		email := viper.GetString("list.mastodon.email")
-		pass := viper.GetString("list.mastodon.pass")
+		email := viper.GetString("email")
+		pass := viper.GetString("pass")
 		c := m.NewClient(config)
 		c.Authenticate(context.Background(), email, pass)
 		if err != nil {

@@ -10,11 +10,3 @@ func Check(e error){
 		log.Print(e)
 	}
 }
-
-func ReadConfig(){
-	viper.SetConfigName(".qqw")
-	viper.AddConfigPath("./")
-	viper.AddConfigPath("$HOME/")
-	viper.SetConfigType("yaml")
-	log.Print("読み込んだぞ")
-}

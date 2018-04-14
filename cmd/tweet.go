@@ -19,7 +19,7 @@ var tweetCmd = &cobra.Command{
 	Use:		"tweet",
 	Short:		"BlueBird tweet",
 	Run: func(cmd *cobra.Command, args []string){
-		viper.SetConfigName(".zzz")
+		viper.SetConfigName(".qqw")
 		viper.AddConfigPath("./")
 		viper.AddConfigPath("$HOME/")
 		viper.SetConfigType("yaml")

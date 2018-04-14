@@ -24,10 +24,10 @@ var randomtootCmd = &cobra.Command{
 	Long:	"Mastodon toot in textfile",
 	Run: func(cmd *cobra.Command, args []string){
 
-		viper.SetConfigName(".zzz")
+		viper.SetConfigName(".qqw")
 		viper.AddConfigPath("./")
 		viper.AddConfigPath("$HOME/")
-		viper.SetConfigType("json")
+		viper.SetConfigType("yaml")
 		err := viper.ReadInConfig()
 		if err != nil{
 			fmt.Fprintf(os.Stderr, "cannot read config file: %v", err)
