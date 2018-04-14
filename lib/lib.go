@@ -1,13 +1,13 @@
 package lib
 
 import(
-	"fmt"
+	"log"
 	"github.com/spf13/viper"
 )
 
 func Check(e error){
 	if e != nil {
-		panic(e)
+		log.Print(e)
 	}
 }
 
@@ -16,5 +16,5 @@ func ReadConfig(){
 	viper.AddConfigPath("./")
 	viper.AddConfigPath("$HOME/")
 	viper.SetConfigType("yaml")
-	fmt.Print("読み込んだぞ")
+	log.Print("読み込んだぞ")
 }
