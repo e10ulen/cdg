@@ -3,14 +3,14 @@ golangとcobraを使ってPC生活楽にしようぜ！ってことで習作で�
 コマンドリストを以下に記述していきます。  
 todoもついでに書いていきます。  
 # CommandList
-- cdg ht  
+- qqw gc  
 Auto git to Add + Commit + Push  
-- cdg toot ...  
+- qqw toot ...  
 マストドンにトゥートします。  
-- cdg tl
+- qqw tl
 マストドンのローカルタイムラインを見つめます。  
 連合は作者が使ってないので見れませんというクズっぷりです。  
-- cdg tweet
+- qqw tweet
 とりあえず、Twitterにツイートはできるようになりました。  
 
 # Develop Platform
@@ -19,7 +19,7 @@ Xubuntu 16.04 i686
   
 # Config
 - Mastodonの設定ファイルを外部ファイル化しました。
-example.cdg.jsonの中身を書き換えて、.cdg.jsonにして$HOMEだけを見てるのでそこにおいてください。  
+example.qqw.ymlの中身を書き換えて、.cdg.jsonにして$HOMEだけを見てるのでそこにおいてください。  
 - ClientIDとClientSecretの取得方法ですが、web版のマストドンを開き
 1. 設定
 2. 開発
@@ -35,6 +35,6 @@ example.cdg.jsonの中身を書き換えて、.cdg.jsonにして$HOMEだけを�
 [apps.twitter.com](https://apps.twitter.com/)をURL直打ちするとは思わなかった  
 
 # 一応…
-cdg tl を使うとカラー指定と、DisplayName(Username)をしてるので、  
+qqw tl を使うとカラー指定と、DisplayName(Username)をしてるので、  
 アイコンは見えませんが、IDと表示名見えてたら捕捉できるよね？  
 

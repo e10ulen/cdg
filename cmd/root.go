@@ -7,7 +7,7 @@ import (
 )
 
 var RootCmd = &cobra.Command{
-	Use: "zzz",
+	Use: "qqw",
 	Short:	"My CommandTools",
 	Run: func(cmd *cobra.Command, args []string) {
 	},
@@ -19,9 +19,9 @@ func init() {
 
 var versionCmd = &cobra.Command{
 	Use: "version",
-	Short: "Print the version number of cdg",
-	Long: "All Software has versions. This is cdg",
+	Short: "Print the version number of qqw",
+	Long: "All Software has versions. This is qqw",
 	Run: func(cmd *cobra.Command, args []string){
-		fmt.Println("cd-bookmark for golang v1.0")
+		fmt.Println("qqw for golang v2.0")
 	},
 }

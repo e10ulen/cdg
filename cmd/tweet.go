@@ -8,6 +8,7 @@ import (
 	"github.com/dghubble/go-twitter/twitter"
 	"github.com/spf13/viper"
 	"github.com/spf13/cobra"
+	"github.com/e10ulen/qqw/lib"
 )
 
 func init(){
@@ -21,16 +22,14 @@ var tweetCmd = &cobra.Command{
 		viper.SetConfigName(".zzz")
 		viper.AddConfigPath("./")
 		viper.AddConfigPath("$HOME/")
-		viper.SetConfigType("json")
+		viper.SetConfigType("yaml")
 		err := viper.ReadInConfig()
-		if err != nil {
-			fmt.Print(err)
-		}
+		lib.Check(err)
 		var csKey, cssKey, acToken, asToken string
-		csKey	= viper.GetString("list.twitter.consumerkey")
-		cssKey	= viper.GetString("list.twitter.consumersecretkey")
-		acToken	= viper.GetString("list.twitter.accesstoken")
-		asToken	= viper.GetString("list.twitter.accesstokensecret")
+		csKey	= viper.GetString("consumerkey")
+		cssKey	= viper.GetString("consumersecretkey")
+		acToken	= viper.GetString("accesstoken")
+		asToken	= viper.GetString("accesstokensecret")
 		if csKey == "" || cssKey == "" || acToken == "" || asToken == "" {
 			fmt.Print(os.Stderr, "config load missing")
 			if csKey == "" {fmt.Println("No CsKey")}

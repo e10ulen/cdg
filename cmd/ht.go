@@ -2,12 +2,12 @@ package cmd
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"os/exec"
 	"time"
 
 	"github.com/spf13/cobra"
+	"github.com/e10ulen/qqw/lib"
 )
 const DateFormat = "2006/01/02 15:04"
 func init(){
@@ -26,18 +26,12 @@ var gitcommitCmd = &cobra.Command{
 		fmt.Print("DateTime:", tm.Format(DateFormat), "\n")
 		//	Add Git UnStageFiles
 		add, err := exec.Command("git", "add", "--all").CombinedOutput()
-		if err != nil{
-			log.Print("Error...Add\n")
-		}
+		lib.Check(err)
 		//	Git Commit
 		cmt,err := exec.Command("git", "commit", "-m", "Commit:"+tm.Format(DateFormat)).CombinedOutput()
-		if err != nil {
-			log.Print("Error...Commit\n")
-		}
+		lib.Check(err)
 		push, err :=exec.Command("git", "push").CombinedOutput()
-		if err != nil {
-			log.Print("Error...Push\n")
-		}
+		lib.Check(err)
 	fmt.Print("Git Add:", string(add), "\n")
 	fmt.Print("Git Commit:", string(cmt), "\n")
 	fmt.Print("Git Push:", string(push), "\n")

@@ -2,12 +2,11 @@ package cmd
 
 import (
 	"context"
-	"fmt"
-	"os"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	m "github.com/mattn/go-mastodon"
+	"github.com/e10ulen/qqw/lib"
 )
 
 func init(){
@@ -20,16 +19,9 @@ var tootCmd = &cobra.Command{
 	Use:	"toot",
 	Short:	"Mastodon toot",
 	Run: func(cmd *cobra.Command, args []string){
-
-		viper.SetConfigName(".zzz")
-		viper.AddConfigPath("./")
-		viper.AddConfigPath("$HOME/")
-		viper.SetConfigType("yaml")
+		lib.ReadConfig()
 		err := viper.ReadInConfig()
-		if err != nil{
-			fmt.Fprintf(os.Stderr, "cannot read config file: %v", err)
-			os.Exit(-1)
-		}
+		lib.Check(err)
 		config := &m.Config{
 			Server:			viper.GetString("server"),
 			ClientID:		viper.GetString("clientid"),

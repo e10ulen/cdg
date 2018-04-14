@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"context"
 	"log"
-	"os"
 	"strings"
 
 	m "github.com/mattn/go-mastodon"
 	"github.com/spf13/viper"
 	"github.com/spf13/cobra"
 	"github.com/fatih/color"
+	"github.com/e10ulen/qqw/lib"
 )
 
 func init(){
@@ -21,19 +21,19 @@ var timelineCmd = &cobra.Command{
 	Use:	"tl",
 	Short:	"Mastodon GetTimeline.",
 	Run: func(cmd *cobra.Command, args []string){
+		/*
 		viper.SetConfigName(".zzz")
 		viper.AddConfigPath("./")
 		viper.AddConfigPath("$HOME/")
 		viper.SetConfigType("json")
+		*/
+		lib.ReadConfig()
 		err := viper.ReadInConfig()
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "cannot read config file: %v", err)
-			os.Exit(1)
-		}
+		lib.Check(err)
 		config := &m.Config{
-			Server: viper.GetString("list.mastodon.server"),
-			ClientID: viper.GetString("list.mastodon.clientid"),
-			ClientSecret: viper.GetString("list.mastodon.clientsecret"),
+			Server: viper.GetString("server"),
+			ClientID: viper.GetString("clientid"),
+			ClientSecret: viper.GetString("clientsecret"),
 		}
 		//var email string
 		//var pass string
@@ -47,6 +47,7 @@ var timelineCmd = &cobra.Command{
 		//	GetTimeline
 		wsc := c.NewWSClient()
 		q, err := wsc.StreamingWSPublic(context.Background(), true)
+		lib.Check(err)
 		for e := range q {
 			if t, ok := e.(*m.UpdateEvent); ok {
 				s := t.Status.Content
