@@ -19,7 +19,7 @@ Xubuntu 16.04 i686
   
 # Config
 - Mastodonの設定ファイルを外部ファイル化しました。
-example.qqw.ymlの中身を書き換えて、.cdg.jsonにして$HOMEだけを見てるのでそこにおいてください。  
+example.qqw.ymlの中身を書き換えて、.qqw.ymlにして$HOMEにおいてください。  
 - ClientIDとClientSecretの取得方法ですが、web版のマストドンを開き
 1. 設定
 2. 開発
